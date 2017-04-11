@@ -18,11 +18,11 @@ const showWeather = (source, data, element) => {
   const temp = document.createElement(`p`);
   const wind = document.createElement(`p`);
   city.innerHTML = data.city.name;
-  skies.innerHTML = `${data.list[0].weather[0].description}`;
-  temp.innerHTML = `${kelvinToFarenheight(data.list[0].main.temp)}˚F
+  skies.innerHTML = `Weather: ${data.list[0].weather[0].description}`;
+  temp.innerHTML = `Temperature: ${kelvinToFarenheight(data.list[0].main.temp)}˚F
     (high: ${kelvinToFarenheight(data.list[0].main.temp_max)}˚F,
     low: ${kelvinToFarenheight(data.list[0].main.temp_min)}˚F)`;
-  wind.innerHTML = `${Math.floor(2.23694 * (data.list[0].wind.speed))} mph, ${direction(data.list[0].wind.deg)}`;
+  wind.innerHTML = `Wind: ${Math.floor(2.23694 * (data.list[0].wind.speed))} mph ${direction(data.list[0].wind.deg)}`;
   content.appendChild(city);
   content.appendChild(skies);
   content.appendChild(temp);
