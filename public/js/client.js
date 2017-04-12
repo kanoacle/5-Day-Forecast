@@ -27,7 +27,6 @@ const showWeather = (source, data, element) => {
   content.appendChild(skies);
   content.appendChild(temp);
   content.appendChild(wind);
-  dataReq();
 };
 
 const kelvinToFarenheight = (K) => {
@@ -76,6 +75,7 @@ const direction = (num) => {
 };
 
 const reset = () => {
+  const input = document.querySelector('#input').value;
   const content = document.querySelector(`#content`);
   while (content.firstChild) {
     content.removeChild(content.firstChild);
@@ -94,6 +94,7 @@ btn.onmouseup = () => {
 btn.onclick = () => {
   const input = document.querySelector(`#input`).value;
   const content = document.querySelector(`#content`);
+  input.value = '';
   reset();
   dataReq(`http://api.openweathermap.org/data/2.5/forecast?q=${input},us&appid=${API_KEY}`, content, showWeather);
 };
